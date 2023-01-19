@@ -1,11 +1,11 @@
-import * as Store from './storageLocal.js';
+import { store } from './storageLocal.js';
 
 const todoList = document.querySelector('.container-list-todo');
 const inputTodo = document.querySelector('#input-todo-name');
 
 export default class UI {
     static displayTodos = () => {
-      const todos = Store.getTodosFromLocalForUi();
+      const todos = store.getTodosFromLocalForUi();
       todos.forEach((todo) => UI.addTodoList(todo));
     };
 
@@ -29,6 +29,7 @@ export default class UI {
             if (todos.length === 1) {
               todos = [];
               localStorage.setItem('todos', JSON.stringify(todos));
+              window.location.reload();
               return;
             }
 
@@ -40,9 +41,8 @@ export default class UI {
               todo.index = i + 1;
             });
             localStorage.setItem('todos', JSON.stringify(todos));
+            window.location.reload();
           });
-
-          window.location.reload();
         }
       });
     };
