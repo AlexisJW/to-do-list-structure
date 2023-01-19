@@ -9,12 +9,11 @@ const todosArray = [
 export default class StorageLocal {
   constructor() {
     this.index = this.getTodosFromLocal().length + 1;
-    todosArray.forEach((todo) => this.addTodo(todo));
   }
 
     getTodosFromLocal = () => {
       if (localStorage.getItem('todos') === null) {
-        this.todos = [];
+        this.todos = todosArray;
       } else {
         this.todos = JSON.parse(localStorage.getItem('todos'));
       }
