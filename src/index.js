@@ -4,6 +4,7 @@ import Todo from '../modules/todo.js';
 import './style.css';
 
 const inputTodo = document.querySelector('#input-todo-name');
+inputTodo.focus();
 const todoList = document.querySelector('.container-list-todo');
 const todosFromLocalArray = store.getTodosFromLocal();
 
