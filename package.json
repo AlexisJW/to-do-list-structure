@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "start": "webpack serve --open",
-    "server": "node server.js",
-    "deploy": "gh-pages -d dist"
+    "server": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/AlexisJW/to-do-list-structure/issues"
   },
-  "homepage": "https://github.com/AlexisJW/to-do-list-structure",
+  "homepage": "https://github.com/AlexisJW/to-do-list-structure#readme",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.3",
@@ -46,7 +45,6 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
-    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21"
   }
 }
