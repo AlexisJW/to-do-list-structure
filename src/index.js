@@ -5,6 +5,7 @@ import './style.css';
 
 const inputTodo = document.querySelector('#input-todo-name');
 const todoList = document.querySelector('.container-list-todo');
+inputTodo.focus();
 const todosFromLocalArray = store.getTodosFromLocal();
 
 inputTodo.addEventListener('keypress', (e) => {
