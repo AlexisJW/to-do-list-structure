@@ -5,7 +5,7 @@ import './style.css';
 
 const inputTodo = document.querySelector('#input-todo-name');
 const todoList = document.querySelector('.container-list-todo');
-const todosFromLocal = store.getTodosFromLocal();
+const todosFromLocalArray = store.getTodosFromLocal();
 
 inputTodo.addEventListener('keypress', (e) => {
   if (e.key === 'Enter' && inputTodo.value.trim() !== '') {
@@ -17,6 +17,7 @@ inputTodo.addEventListener('keypress', (e) => {
     store.addTodo(todo);
     UI.addTodoList(todo);
     UI.deleteTodo();
+    window.location.reload();
   }
 });
 
@@ -25,8 +26,9 @@ window.onload = () => {
 };
 
 todoList.addEventListener('DOMSubtreeModified', () => {
-  UI.editItemTodo(todosFromLocal);
-  UI.isCheckedTodo(todosFromLocal);
+  UI.editItemTodo(todosFromLocalArray);
+  UI.isCheckedTodo(todosFromLocalArray);
 });
 
+document.querySelector('.clear-checked-btn').addEventListener('click', () => UI.clearAllCheckedTodos(todosFromLocalArray));
 document.addEventListener('DOMContentLoaded', UI.displayTodos);
