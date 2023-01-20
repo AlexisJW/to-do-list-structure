@@ -88,4 +88,16 @@ export default class UI {
         });
       });
     };
+
+    static clearAllCheckedTodos = (todosArray) => {
+      const checkedTodos = document.querySelectorAll('input[type="checkbox"]:checked');
+
+      if (checkedTodos.length !== 0) {
+        let todosFromStorage = JSON.parse(localStorage.getItem('todos'));
+        todosFromStorage = todosFromStorage.filter((todo) => todo.completed === false);
+        todosArray = todosFromStorage;
+        localStorage.setItem('todos', JSON.stringify(todosArray));
+        window.location.reload();
+      }
+    };
 }
