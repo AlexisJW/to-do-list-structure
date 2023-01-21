@@ -1,4 +1,3 @@
-/* eslint-disable */
 const path = require('path');
 const toml = require('toml');
 const yaml = require('yamljs');
@@ -13,18 +12,16 @@ module.exports = {
   devServer: {
     static: './dist',
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-      template: './src/index.html',
-    }),
-  ],
   module: {
     rules: [
       {
