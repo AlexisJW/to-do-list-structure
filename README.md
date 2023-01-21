@@ -97,7 +97,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://alexisjw.github.io/to-do-list-structure/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
