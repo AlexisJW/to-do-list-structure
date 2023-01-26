@@ -1,7 +1,6 @@
 /**
  * @jest-environment jsdom
  */
-
 import Todo from './todo.js';
 import { store } from './storageLocal.js';
 
