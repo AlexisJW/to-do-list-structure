@@ -22,6 +22,6 @@
     "dist/",
     "build/",
     "server.js",
-    "webpack.config.jss"
+    "webpack.config.js"
   ]
 }
