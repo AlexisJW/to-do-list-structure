@@ -6,7 +6,7 @@ const inputTodo = document.querySelector('#input-todo-name');
 export default class UI {
     static displayTodos = () => {
       const todos = store.getTodosFromLocalForUi();
-      todos.forEach((todo) => UI.addTodoList(todo));
+      todos.forEach((todo) => UI.addTodoList(todo, ''));
     };
 
     static addTodoList = (todoValue) => {
@@ -25,22 +25,8 @@ export default class UI {
       document.querySelectorAll('.w-6').forEach((item) => {
         if (item) {
           item.addEventListener('click', (e) => {
-            let todos = JSON.parse(localStorage.getItem('todos'));
-            if (todos.length === 1) {
-              todos = [];
-              localStorage.setItem('todos', JSON.stringify(todos));
-              window.location.reload();
-              return;
-            }
-
-            const index = e.target.parentElement.id;
-            todos = todos.filter((todo) => todo.index !== parseInt(index, 10));
-            localStorage.setItem('todos', JSON.stringify(todos));
-
-            todos.forEach((todo, i) => {
-              todo.index = i + 1;
-            });
-            localStorage.setItem('todos', JSON.stringify(todos));
+            const { id } = e.target.parentElement;
+            store.removeTodo(id);
             window.location.reload();
           });
         }
