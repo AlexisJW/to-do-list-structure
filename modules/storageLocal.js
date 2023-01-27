@@ -48,6 +48,27 @@ export default class StorageLocal {
       });
       localStorage.setItem('todos', JSON.stringify(todos));
     };
+
+    editTodoFromStorage = (item) => {
+      const todosArrayLocal = this.getTodosFromLocal();
+      const todo = todosArrayLocal.find((todo) => todo.index === parseInt(item.id.replace('todo-', ''), 10));
+      todo.description = item.value;
+      localStorage.setItem('todos', JSON.stringify(todosArrayLocal));
+    };
+
+    editTodo = (descriptionEdited) => {
+      const todosArrayLocal = this.getTodosFromLocal();
+      const todo = todosArrayLocal.find((todo) => todo.index === 1);
+      todo.description = descriptionEdited;
+      localStorage.setItem('todos', JSON.stringify(todosArrayLocal));
+    };
+
+    clearAllCheckedTodosInStorage = () => {
+      let todosFromStorage = this.getTodosFromLocal();
+      todosFromStorage = todosFromStorage.filter((todo) => todo.completed === false);
+      // todosArray = todosFromStorage;
+      localStorage.setItem('todos', JSON.stringify(todosFromStorage));
+    }
 }
 
 export const store = new StorageLocal();

@@ -27,9 +27,9 @@ window.onload = () => {
 };
 
 todoList.addEventListener('DOMSubtreeModified', () => {
-  UI.editItemTodo(todosFromLocalArray);
+  UI.editItemTodo();
   UI.isCheckedTodo(todosFromLocalArray);
 });
 
-document.querySelector('.clear-checked-btn').addEventListener('click', () => UI.clearAllCheckedTodos(todosFromLocalArray));
+document.querySelector('.clear-checked-btn').addEventListener('click', () => UI.clearAllCheckedTodos());
 document.addEventListener('DOMContentLoaded', UI.displayTodos);

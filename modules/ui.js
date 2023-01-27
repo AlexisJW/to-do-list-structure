@@ -39,15 +39,12 @@ export default class UI {
       return todoValue;
     };
 
-    static editItemTodo = (todosArrayLocal) => {
+    static editItemTodo = () => {
       document.querySelectorAll('.todo-desc').forEach((item) => {
         if (item) {
           item.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && item.value.trim() !== '') {
-              todosArrayLocal = JSON.parse(localStorage.getItem('todos'));
-              const todo = todosArrayLocal.find((todo) => todo.index === parseInt(item.id.replace('todo-', ''), 10));
-              todo.description = item.value;
-              localStorage.setItem('todos', JSON.stringify(todosArrayLocal));
+              store.editTodoFromStorage(item);
               window.location.reload();
             }
           });
@@ -75,14 +72,11 @@ export default class UI {
       });
     };
 
-    static clearAllCheckedTodos = (todosArray) => {
+    static clearAllCheckedTodos = () => {
       const checkedTodos = document.querySelectorAll('input[type="checkbox"]:checked');
 
       if (checkedTodos.length !== 0) {
-        let todosFromStorage = JSON.parse(localStorage.getItem('todos'));
-        todosFromStorage = todosFromStorage.filter((todo) => todo.completed === false);
-        todosArray = todosFromStorage;
-        localStorage.setItem('todos', JSON.stringify(todosArray));
+        store.clearAllCheckedTodosInStorage();
         window.location.reload();
       }
     };
