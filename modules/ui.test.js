@@ -1,7 +1,6 @@
 /**
  * @jest-environment jsdom
  */
-
 import Todo from './todo.js';
 import { store } from './storageLocal.js';
 
@@ -19,6 +18,7 @@ describe('removing elements', () => {
     expect(store.getTodosFromLocalForUi()).toHaveLength(0);
   });
 });
+
 
 describe('edits todo', () => {
   test('edits todo item in local storage', () => {
@@ -68,3 +68,5 @@ describe('clear all checked todos', () => {
     expect(store.getTodosFromLocal()).toHaveLength(1);
   });
 });
+
+
