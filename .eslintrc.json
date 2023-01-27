@@ -20,6 +20,8 @@
   },
   "ignorePatterns": [
     "dist/",
-    "build/"
+    "build/",
+    "server.js",
+    "webpack.config.js"
   ]
 }
