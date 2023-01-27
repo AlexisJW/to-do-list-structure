@@ -62,6 +62,13 @@ export default class StorageLocal {
       todo.description = descriptionEdited;
       localStorage.setItem('todos', JSON.stringify(todosArrayLocal));
     };
+
+    clearAllCheckedTodosInStorage = () => {
+      let todosFromStorage = this.getTodosFromLocal();
+      todosFromStorage = todosFromStorage.filter((todo) => todo.completed === false);
+      // todosArray = todosFromStorage;
+      localStorage.setItem('todos', JSON.stringify(todosFromStorage));
+    }
 }
 
 export const store = new StorageLocal();

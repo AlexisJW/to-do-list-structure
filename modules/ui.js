@@ -72,14 +72,11 @@ export default class UI {
       });
     };
 
-    static clearAllCheckedTodos = (todosArray) => {
+    static clearAllCheckedTodos = () => {
       const checkedTodos = document.querySelectorAll('input[type="checkbox"]:checked');
 
       if (checkedTodos.length !== 0) {
-        let todosFromStorage = JSON.parse(localStorage.getItem('todos'));
-        todosFromStorage = todosFromStorage.filter((todo) => todo.completed === false);
-        todosArray = todosFromStorage;
-        localStorage.setItem('todos', JSON.stringify(todosArray));
+        store.clearAllCheckedTodosInStorage();
         window.location.reload();
       }
     };

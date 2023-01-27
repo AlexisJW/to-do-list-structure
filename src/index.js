@@ -31,5 +31,5 @@ todoList.addEventListener('DOMSubtreeModified', () => {
   UI.isCheckedTodo(todosFromLocalArray);
 });
 
-document.querySelector('.clear-checked-btn').addEventListener('click', () => UI.clearAllCheckedTodos(todosFromLocalArray));
+document.querySelector('.clear-checked-btn').addEventListener('click', () => UI.clearAllCheckedTodos());
 document.addEventListener('DOMContentLoaded', UI.displayTodos);
