@@ -39,15 +39,12 @@ export default class UI {
       return todoValue;
     };
 
-    static editItemTodo = (todosArrayLocal) => {
+    static editItemTodo = () => {
       document.querySelectorAll('.todo-desc').forEach((item) => {
         if (item) {
           item.addEventListener('keypress', (e) => {
             if (e.key === 'Enter' && item.value.trim() !== '') {
-              todosArrayLocal = JSON.parse(localStorage.getItem('todos'));
-              const todo = todosArrayLocal.find((todo) => todo.index === parseInt(item.id.replace('todo-', ''), 10));
-              todo.description = item.value;
-              localStorage.setItem('todos', JSON.stringify(todosArrayLocal));
+              store.editTodoFromStorage(item);
               window.location.reload();
             }
           });

@@ -27,7 +27,7 @@ window.onload = () => {
 };
 
 todoList.addEventListener('DOMSubtreeModified', () => {
-  UI.editItemTodo(todosFromLocalArray);
+  UI.editItemTodo();
   UI.isCheckedTodo(todosFromLocalArray);
 });
 
